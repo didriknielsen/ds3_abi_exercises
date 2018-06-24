@@ -2,7 +2,7 @@
 # @Date:   2018-06-23T02:43:22+02:00
 # @Email:  aaron.mishkin@riken.jp
 # @Last modified by:   aaronmishkin
-# @Last modified time: 2018-06-24T19:55:01+02:00
+# @Last modified time: 2018-06-24T20:23:17+02:00
 
 
 import torch
@@ -84,50 +84,16 @@ def plot_predictions(x, y, x_pred, mu_pred):
 #### Laplace Approximation Plotting Functions ####
 ##################################################
 def la_visualize_prior_joint_posterior(w1,w2,prior_density,joint_density,posterior_density):
-    fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(18, 6))
-
-    prior_joint_levels = np.linspace(0, 0.004, 20)
-    posterior_levels = np.linspace(0, 0.016, 20)
-
-    c1 = plot_density(ax1, w1, w2, prior_density, prior_joint_levels, title="Prior", xlim=[-20,20], ylim=[-20,20])
-    c2 = plot_density(ax2, w1, w2, joint_density, prior_joint_levels, title="Joint", xlim=[-20,20], ylim=[-20,20])
-    c3 = plot_density(ax3, w1, w2, posterior_density, posterior_levels, title="Posterior", xlim=[-20,20], ylim=[-20,20])
-
-
-    cb = fig.colorbar(c2, ax=ax2, ticks=[0, 0.001, 0.002, 0.003, 0.004])
-    cb = fig.colorbar(c3, ax=ax3, ticks=[0, 0.004, 0.008, 0.012, 0.016])
 
     return
 
 def visualize_MAP_estimate(objective_history, w_history, max_iters, w1, w2, posterior_density, w_map, X, y):
-    fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(18, 6))
-
-    plot_objective_history(ax1, range(max_iters), objective_history, 'MAP Objective')
-    ax1.set_ylim(0,10)
-
-    plot_logreg_data(ax2, X.numpy(), y.numpy())
-    plot_map_boundary(ax2, w_map.detach().numpy())
-    ax2.set_title('MAP Decision Boundary')
-
-    c1 = plot_density(ax3, w1, w2, posterior_density, None, title="Posterior")
-    w_np = w_history.detach().numpy()
-    ax3.plot(w_np[:,0],w_np[:,1], 'k.', ms=4, label='Training Path')
-    ax3.plot(w_map[0].detach().numpy(), w_map[1].detach().numpy(), 'ro', ms=10, label='MAP Estimate')
-    ax3.legend()
-    fig.colorbar(c1)
-    print('The MAP estimate is:', w_map.detach().numpy())
 
     return
 
 def visualize_laplace_approximation(w1,w2,posterior_density,mu_la,Sigma_la):
 
-    fig, (ax1) = plt.subplots(1, 1, figsize=(8, 6))
-
-    c1 = plot_density(ax1, w1, w2, posterior_density, None, title="Posterior")
-    ellipse = plot_cov_ellipse(ax1, mu_la.detach().numpy(), Sigma_la.detach().numpy(), label='Laplace Approx.')
-    ax1.legend()
-    t = ax1.set_title('Laplace Approximation')
-    cb = fig.colorbar(c1)
+    return
 
 ##################################################
 #### Variational Inference Plotting Functions ####
