@@ -13,6 +13,10 @@ The following packages will be required:
 * [`jupyter`](http://jupyter.org/install)
 * [`ipywidgets`](https://ipywidgets.readthedocs.io/en/latest/user_install.html)
 
+```
+pip install -r requirements.txt
+```
+
 ## Starting the Jupyter Notebook
 
 From the repo's main directory, run:
