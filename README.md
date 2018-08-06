@@ -1,6 +1,6 @@
 # Exercises
 
-Exercises for the Tutorial on Approximate Bayesian Inference at the Data Science Summer School 2018.
+Exercises for the [Tutorial on Approximate Bayesian Inference](https://emtiyaz.github.io/teaching/ds3_2018/ds3.html) at the Data Science Summer School 2018.
 
 ## Dependencies
 
